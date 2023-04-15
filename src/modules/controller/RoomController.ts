@@ -17,3 +17,5 @@ export class RoomController {
     return res.status(200).json({ data: rep });
   }
 }
+
+export default RoomController;
