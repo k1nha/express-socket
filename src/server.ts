@@ -1,7 +1,10 @@
+/* eslint-disable no-console */
+import RoomController from './modules/controller/RoomController';
 import { App } from './modules/http/http';
 import logger from './utils/logger';
 
 const app = new App();
+const room = new RoomController();
 
 // TODO: type socket
 app.socketServer.on('connection', (socket: any) => {
@@ -10,11 +13,12 @@ app.socketServer.on('connection', (socket: any) => {
   socket.on('message', (data: string) => {
     //TODO: change console to logging
     console.log(data);
+
+    room.create;
   });
 });
 
 app.httpServer.listen(3030, () => {
-  // eslint-disable-next-line no-console
   //TODO: change console to logging
   // logger.info('🚀 Starting server on port 3030 🚀');
   console.log('🚀 Starting server on port 3030 🚀');
