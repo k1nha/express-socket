@@ -10,11 +10,15 @@ const room = new RoomController();
 app.socketServer.on('connection', (socket: any) => {
   logger.info(`User connected: ${socket.id}`);
 
-  socket.on('message', (data: string) => {
+  socket.on('create-room', (data: string) => {
     //TODO: change console to logging
     console.log(data);
 
     room.create;
+
+    socket.emit('room-created', () => {
+      // TODO: send message and redirect user to room
+    });
   });
 });
 
